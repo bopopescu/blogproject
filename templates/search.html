@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container">
+    {% if query %}
+    {% for article in articles %}
+    <ul>
+        <li>{{article.id}}</li>
+        <li>{{article.title}}</li>
+        <li>{{article.description}}</li>
+        <li>{{article.created_at}}</li>
+        <li>{{article.user|title}}</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+{% if user.is_authenticated %}
+    HI {{user.username}}
+    Last Login {{user.last_login}}
+{% endif %}
+<a href="{% url 'logout'%}">logout</a>
+    </div>
+{% endblock %}

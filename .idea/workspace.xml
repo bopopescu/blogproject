@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="edc7393d-85c9-41d5-824a-e473b9db07bb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1eB4LzS5ybXVpjIH9EOT1kMuHqo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edc7393d-85c9-41d5-824a-e473b9db07bb" name="Default Changelist" comment="" />
+      <created>1593781600651</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593781600651</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="462" y="127" key="FileChooserDialogImpl" timestamp="1593849682606">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="462" y="127" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1593849682606" />
+    <state x="206" y="24" key="SettingsEditor" timestamp="1593861172024">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="206" y="24" key="SettingsEditor/65.24.1295.744@65.24.1295.744" timestamp="1593861172024" />
+  </component>
+</project>

@@ -32,12 +32,8 @@ class create(CreateView):
 def search(request):
     query = request.GET.get('query')
     if query:
-        articles = Article.objects.all()
-        print(articles)
-
+        articles = Article.objects.filter(Q(title=query))
         return render(request, 'search.html', {'query': query, 'articles': articles})
-    return render(request, 'search.html')
+        return render(request, 'search.html')
 
 
-def results(requests):
-    return render(requests, 'results.html')

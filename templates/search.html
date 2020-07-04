@@ -3,7 +3,9 @@
 
 <div class="container">
     {% if query %}
+    <p>{{query}}</p>
     {% for article in articles %}
+
     <ul>
         <li>{{article.id}}</li>
         <li>{{article.title}}</li>

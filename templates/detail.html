@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<ul>
-    <li>{{article.id}}</li>
-    <li>{{article.title}}</li>
-    <li>{{article.description}}</li>
-    <li>{{article.created_at}}</li>
-    <li>{{article.user|title}}</li>
-</ul>
+<br>
+<br>
+<div class="container">
+    <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{article.title|title}}</h5>
+    <p class="card-text">{{article.description}}</p>
+    <p class="card-text"><small class="text-muted">{{article.last_updated|date}}</small></p>
+  </div>
+
+</div>
+    </div>
 {% endblock  %}

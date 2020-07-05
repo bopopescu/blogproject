@@ -1,16 +1,18 @@
-from django.shortcuts import render, redirect,HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from blogapp.models import Article
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
+
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from blogapp.forms import ArticleForm
 
 @login_required
 def home(request):
     user_articles_count = Article.objects.filter(user=request.user).count()
-    user_articles = Article.objects.filter(user=request.user)
+    user_articles = Article.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'home.html', {'articles':user_articles,'count':user_articles_count})
 
 
@@ -19,18 +21,27 @@ def list(request):
     return render(request, 'list.html', {'articles': articles})
 
 
-def detail(request, title):
-    article = Article.objects.filter(title=title)
-    if article:
-        article = article[0]
-        return render(request, 'detail.html', {'article': article})
+def detail(request, pk):
+    article = Article.objects.get(pk=pk)
+    print(article)
+    return render(request, 'detail.html', {'article': article})
 
 
-class create(CreateView):
-    model = Article
-    template_name = 'create.html'
-    fields =['title','description','user']
-    success_url = reverse_lazy('list')
+def create(request):
+    form = ArticleForm()
+    if request.method=='POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            title=form.cleaned_data['title']
+            description=form.cleaned_data['description']
+            created_at=form.cleaned_data['created_at']
+            user=request.user
+            article=Article(title=title,created_at=created_at,user=user)
+            article.save()
+            return redirect('list')
+        else:
+            form=ArticleForm()
+    return render(request,'create.html',{'form':form})
 
 
 def search(request):
@@ -53,3 +64,9 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+class Update(UpdateView,):
+    model = Article
+    template_name = 'update.html'
+    fields = ['title','description']
+    success_url = reverse_lazy('home')

@@ -5,14 +5,23 @@
 {% for article in articles %}
 <div class="container">
     <div class="card border-dark mb-3" style="max-width: 100rem;">
-        <div class="card-header"><a href="/detail/{{article.title}}">{{article.title|title}}</a></div>
+        <div class="card-header"><a href="/detail/{{article.pk}}">{{article.title|title}}</a></div>
         <div class="card-body text-dark">
             <p class="card-text">{{article.description}}</p>
+            <p class="card-text">{{article.category}}</p>
             <h5 class="card-title">{{article.user|title}}</h5>
-            <p class="card-text">{{article.created_at|date}}</p>
+
+              <p class="card-text">{{article.created_at|date}}</p>
+        <!--<a href="/update/{{article.pk}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span>
+    </a>
+    <a href="/detail/{{article.pk}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>View</strong></span>
+    </a>-->
 
         </div>
-
     </div>
 
 </div>

@@ -2,14 +2,23 @@
 {% block content %}
 <br>
 <br>
+<style>
+.card-body .card-text
+{
+    font-family: Times, "Times New Roman", serif;
+}
+</style>
 <div class="container">
     <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">{{article.title|title}}</h5>
-    <p class="card-text">{{article.description}}</p>
-    <p class="card-text"><small class="text-muted">{{article.last_updated|date}}</small></p>
-  </div>
+        <div class="card-body">
+            <h5 class="card-title">{{article.title|title}}</h5>
+            <p class="card-text">{{article.description}}</p>
+            <label>LastUpdated</label>
+            <p class="card-text"><small class="text-muted">{{article.updated_at|date}}</small></p>
+            <label>PostCreatedBy</label>
+            <p class="card-text"><small class="text-muted">{{article.user|title}}</small></p>
+        </div>
 
-</div>
     </div>
+</div>
 {% endblock  %}

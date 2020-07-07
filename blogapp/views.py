@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
-from blogapp.models import Article
-from django.views.generic import CreateView, UpdateView
-
+from blogapp.models import Article,CustomUser
+from django.views.generic import CreateView, UpdateView,DeleteView
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from blogapp.forms import ArticleForm
+from blogapp.forms import ArticleForm,CustomUserCreationForm
 
 @login_required
 def home(request):
@@ -58,6 +57,8 @@ def signup(request):
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
+            #email=form.cleaned_data['email']
+            #image=form.cleaned_data['image']
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('login')
@@ -69,4 +70,9 @@ class Update(UpdateView,):
     model = Article
     template_name = 'update.html'
     fields = ['title','description']
+    success_url = reverse_lazy('home')
+
+class Delete(DeleteView):
+    model=Article
+    template_name = 'delete.html'
     success_url = reverse_lazy('home')

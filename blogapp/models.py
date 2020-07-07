@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractBaseUser
 
 class Article(models.Model):
     title=models.CharField(max_length=250,null=True,blank=True)
@@ -14,3 +15,6 @@ class Article(models.Model):
 
 
 
+class CustomUser(AbstractBaseUser):
+    email=models.EmailField(null=True,blank=True)
+    image=models.ImageField(null=True,blank=True)
